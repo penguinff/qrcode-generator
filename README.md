@@ -4,10 +4,14 @@ This project is a React web application for generating QR codes (in SVG format) 
 
 ![image](https://github.com/penguinff/readme_pictures/blob/main/qrcode-generator/homepage.png)
 
+## Demo Website
+
+- https://qrcode-generator.christinefong.site/
+
 ## Table of Contents
 
 - [Features](#features)
-- [Technologies & Dependencies](#technologies)
+- [Technologies & Dependencies](#technologies--dependencies)
 - [Installation](#installation)
 - [Usage](#usage)
 
