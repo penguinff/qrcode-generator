@@ -1,0 +1,52 @@
+.generator {
+  max-width: 1200px;
+  margin: auto;
+  min-height: 87vh;
+
+  .top-part {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .bottom-part {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem;
+
+    .qr-code-list {
+      display: grid;
+      place-items: center;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      width: 100%;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      color: #0090aa;
+      background-color: #fff;
+      border: solid 2px #0090aa;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      width: fit-content;
+      max-width: 200px;
+      align-self: flex-start;
+
+      &:hover {
+        border: solid 2px #006374;
+        color: #006374;
+      }
+    }
+  }
+}
