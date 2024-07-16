@@ -6,7 +6,7 @@ const Footer = () => {
       <span>
         Developed by : Chirstine Fong |{' '}
         <a
-          href='https://github.com/penguinff'
+          href='https://github.com/penguinff/qrcode-generator'
           target='_blank'
           rel='noreferrer noopener'
         >
