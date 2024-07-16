@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { HexColorPicker, HexColorInput } from 'react-colorful';
+import { HexAlphaColorPicker, HexColorInput } from 'react-colorful';
 import './color-picker.scss';
 
 type ColorPickerProps = {
@@ -38,7 +38,7 @@ const ColorPicker = ({ title, color, setColor }: ColorPickerProps) => {
       ></div>
       {isShowPicker && (
         <div ref={pickerRef} className='picker-area'>
-          <HexColorPicker color={color} onChange={setColor} />
+          <HexAlphaColorPicker color={color} onChange={setColor} />
           <HexColorInput color={color} onChange={setColor} />
         </div>
       )}
