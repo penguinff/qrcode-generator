@@ -1,3 +1,4 @@
+import { MAX_NUMBER_OF_CODES } from '../../config';
 import './data-section.scss';
 
 type DataSectionProps = {
@@ -21,15 +22,14 @@ const DataSection = ({
   handleReset,
   numberOfCodes,
 }: DataSectionProps) => {
-  //TODO: 不要寫死
-  const canGenerate = numberOfCodes <= 200;
+  const canGenerate = numberOfCodes <= MAX_NUMBER_OF_CODES;
 
   return (
     <div className='data-section'>
       <h3>
         QR Code(s){' '}
         <span className={!canGenerate ? 'span-warn' : ''}>
-          (Maximum 200 QR Codes)
+          (Maximum {MAX_NUMBER_OF_CODES} QR Codes)
         </span>
       </h3>
 
