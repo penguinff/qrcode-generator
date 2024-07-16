@@ -34,6 +34,7 @@ This project is a React web application for generating QR codes (in SVG format) 
 - **jszip**: a library for creating, reading, and editing .zip files.
 - **file-saver**: a library to save files on the client-side.
 - **react-colorful**: a tiny color picker component for React apps.
+- **dompurify**: a XSS sanitizer for HTML, MathML and SVG.
 
 ## Installation
 

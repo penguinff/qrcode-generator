@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 import { saveAs } from 'file-saver';
+import DOMPurify from 'dompurify';
 import { ImageData } from '../../types';
 import './qrcode-display.scss';
 
@@ -8,7 +9,10 @@ const QRCodeDisplay = ({ filename, image, text, canDownload }: ImageData) => {
 
   useEffect(() => {
     if (svgContainerRef.current) {
-      svgContainerRef.current.innerHTML = image;
+      const sanitizedSVG = DOMPurify.sanitize(image, {
+        USE_PROFILES: { svg: true, svgFilters: true },
+      });
+      svgContainerRef.current.innerHTML = sanitizedSVG;
     }
   }, [image]);
 
