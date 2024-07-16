@@ -1,5 +1,6 @@
 import { ErrorCorrectionLevel } from '../../types';
 import ColorPicker from '../ColorPicker/ColorPicker';
+import Tooltip from '../Tooltip/Tooltip';
 import './config-section.scss';
 
 type ConfigSectionProps = {
@@ -30,7 +31,10 @@ const ConfigSection = ({
   return (
     <div className='config-section'>
       <h3>Configuration</h3>
-      <label htmlFor='error-correction-level'>Error Correction Level</label>
+      <label htmlFor='error-correction-level'>
+        <span>Error Correction Level</span>
+        <Tooltip tooltipText='Higher = larger in size, more robust code.' />
+      </label>
       <select
         name='error-correction-level'
         id='error-correction-level'
@@ -45,21 +49,29 @@ const ConfigSection = ({
         <option value='H'>High</option>
       </select>
 
-      <label htmlFor='width'>Width</label>
+      <label htmlFor='width'>
+        <span>Width</span>
+        <Tooltip tooltipText='Define the width (px) for the output image. If width is too small to contain the QR code, this option will be ignored.' />
+      </label>
       <input
         type='number'
         id='width'
         name='width'
         value={width}
+        min={0}
         onChange={(e) => setWidth(parseInt(e.target.value))}
       />
 
-      <label htmlFor='margin'>Margin</label>
+      <label htmlFor='margin'>
+        <span>Margin</span>
+        <Tooltip tooltipText='Define how much wide the quiet zone should be.' />
+      </label>
       <input
         type='number'
         id='margin'
         name='margin'
         value={margin}
+        min={0}
         onChange={(e) => setMargin(parseInt(e.target.value))}
       />
 
