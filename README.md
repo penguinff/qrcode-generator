@@ -27,13 +27,13 @@ This project is a React web application for generating QR codes (in SVG format) 
 ## Technologies & Dependencies
 
 - **React**: a library for building user interfaces.
-- **TypeScript**: a strongly typed programming language that builds on JavaScript.
+- **TypeScript**: a programming language that adds static typing to JavaScript.
 - **Vite**: a fast build tool and development server for modern web projects.
 - **Sass**: a preprocessor scripting language that is interpreted or compiled into CSS.
-- **QRCode**: a library for generating QR codes.
-- **JSZip**: a library for creating, reading, and editing .zip files.
+- **qrcode**: a library for generating QR codes.
+- **jszip**: a library for creating, reading, and editing .zip files.
 - **file-saver**: a library to save files on the client-side.
-- **react-colorful**: a tiny and fast color picker component for React.
+- **react-colorful**: a tiny color picker component for React apps.
 
 ## Installation
 
@@ -77,7 +77,7 @@ To run this project locally, follow these steps:
    - The generated QR codes will be displayed in a list.
    - Click the QR code to download SVG file individually.
 
-4. **Download QR Codes**:
+4. **Bulk Download QR Codes**:
 
    - Click the "Download all in .zip file" button to download a ZIP file containing all generated QR codes in SVG format with a CSV file mapping the filename and content.
 
