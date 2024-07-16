@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
+import { saveAs } from 'file-saver';
 import { ImageData } from '../../types';
 import './qrcode-display.scss';
 
@@ -11,21 +12,12 @@ const QRCodeDisplay = ({ filename, image, text, canDownload }: ImageData) => {
     }
   }, [image]);
 
-  const handleDownload = (canDownload: boolean) => {
+  const handleDownload = useCallback(() => {
     if (canDownload) {
-      const blob = new Blob([image], { type: 'image/svg+xml' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${filename}.svg`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-    } else {
-      return;
+      const svgFile = new Blob([image], { type: 'image/svg+xml' });
+      saveAs(svgFile, `${filename}.svg`);
     }
-  };
+  }, [canDownload, image, filename]);
 
   return (
     <div className='qr-code-display'>
@@ -34,11 +26,9 @@ const QRCodeDisplay = ({ filename, image, text, canDownload }: ImageData) => {
         <p className='qr-code-text'>{text}</p>
       </div>
       <div
-        className={`qr-code-image ${
-          canDownload ? 'can-download' : 'cannot-download'
-        }`}
+        className={`qr-code-image ${canDownload ? 'can-download' : ''}`}
         ref={svgContainerRef}
-        onClick={() => handleDownload(canDownload)}
+        onClick={handleDownload}
       ></div>
     </div>
   );
