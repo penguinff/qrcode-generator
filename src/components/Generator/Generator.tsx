@@ -117,8 +117,8 @@ const Generator = () => {
     dispatch({ type: 'RESET', payload: null });
   }, []);
 
-  const handleDownloadZip = useCallback(() => {
-    downloadZip(state.images);
+  const handleDownloadZip = useCallback(async () => {
+    await downloadZip(state.images);
   }, [state.images]);
 
   return (

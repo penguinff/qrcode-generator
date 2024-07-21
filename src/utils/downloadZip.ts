@@ -9,18 +9,22 @@ const escapeCsvValue = (value: string) => {
 };
 
 const downloadZip = async (images: ImageData[]): Promise<void> => {
-  const zip = new JSZip();
-  let csvContent = 'File Name,Content\n';
+  try {
+    const zip = new JSZip();
+    let csvContent = 'File Name,Content\n';
 
-  images.forEach((image) => {
-    zip.file(`${image.filename}.svg`, image.image);
-    csvContent += `${image.filename}.svg,${escapeCsvValue(image.text)}\n`;
-  });
+    images.forEach((image) => {
+      zip.file(`${image.filename}.svg`, image.image);
+      csvContent += `${image.filename}.svg,${escapeCsvValue(image.text)}\n`;
+    });
 
-  zip.file('mapping.csv', csvContent);
+    zip.file('mapping.csv', csvContent);
 
-  const zipFile = await zip.generateAsync({ type: 'blob' });
-  saveAs(zipFile, 'qr_codes.zip');
+    const zipFile = await zip.generateAsync({ type: 'blob' });
+    saveAs(zipFile, 'qr_codes.zip');
+  } catch (error) {
+    console.log('Failed to create ZIP file: ', error);
+  }
 };
 
 export default downloadZip;
